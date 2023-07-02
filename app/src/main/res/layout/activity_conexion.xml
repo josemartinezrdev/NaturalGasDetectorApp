@@ -6,4 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".conexionActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="CONEXIÓN"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="332dp"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
