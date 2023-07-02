@@ -14,8 +14,8 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="50sp"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="332dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="69dp"
+        tools:layout_editor_absoluteY="272dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
