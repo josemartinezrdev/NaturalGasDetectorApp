@@ -1,23 +1,358 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:background="@color/black"
+    android:textAlignment="center"
     tools:context=".infoActivity">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="INFORMACIÓN"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="50sp"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="332dp"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043"
         tools:ignore="MissingConstraints" />
 
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="65dp"
+        android:text="INFORMACIÓN"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.490"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.185" />
+
+    <Button
+
+        android:id="@+id/listQ"
+
+        android:layout_width="340dp"
+        android:layout_height="50dp"
+        android:background="@drawable/redondo_15dp"
+        android:backgroundTint="#252CD2"
+        android:paddingStart="15dp"
+        android:text="¿Qué es?"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.348"></Button>
+
+    <TextView
+
+        android:id="@+id/textQ"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Es un sistema de seguridad que utiliza un sensor MQ-4 para detectar la presencia de gas natural y gas butano, emitiendo una alerta temprana en caso de fuga. El sistema cuenta con un monitoreo en tiempo real para la prevención de riesgos y protección de personas y propiedades."
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        android:padding="35dp"
+        android:visibility="invisible"
+
+        ></TextView>
+
+    <Button
+
+        android:id="@+id/listC"
+
+        android:layout_width="340dp"
+        android:layout_height="50dp"
+        android:background="@drawable/redondo_15dp"
+        android:backgroundTint="#3781D8"
+        android:paddingStart="15dp"
+        android:text="¿Cómo funciona?"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.469"></Button>
+
+    <TextView
+
+        android:id="@+id/textC"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="El sistema de detección de gas utiliza un sensor MQ-4 para detectar gas natural y gas butano en una zona de riesgo. Cuando se detecta una fuga, se envía una señal de alerta  a un dispositivo móvil, para que las personas puedan evacuar el area de manera segura."
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        android:padding="35dp"
+        android:visibility="invisible"
+        ></TextView>
+
+    <Button
+
+        android:id="@+id/listA"
+
+        android:layout_width="340dp"
+        android:layout_height="50dp"
+        android:background="@drawable/redondo_15dp"
+        android:backgroundTint="#252CD2"
+        android:paddingStart="15dp"
+        android:text="Autores"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.589"></Button>
+
+    <Button
+
+        android:id="@+id/listJD"
+
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:background="@drawable/redondo_15dp"
+        android:backgroundTint="#3781D8"
+        android:paddingStart="15dp"
+        android:text="José Martínez"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.350"
+        android:visibility="invisible"
+        ></Button>
+
+    <Button
+
+        android:id="@+id/listJG"
+
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:background="@drawable/redondo_15dp"
+        android:backgroundTint="#252CD2"
+        android:paddingStart="15dp"
+        android:text="José García"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.435"
+        android:visibility="invisible" ></Button>
+
+    <Button
+
+        android:id="@+id/listLM"
+
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:background="@drawable/redondo_15dp"
+        android:backgroundTint="#3781D8"
+        android:paddingStart="15dp"
+        android:text="Leider Martínez"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.520"
+        android:visibility="invisible"
+        ></Button>
+
+    <Button
+
+        android:id="@+id/listAA"
+
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:background="@drawable/redondo_15dp"
+        android:backgroundTint="#252CD2"
+        android:paddingStart="15dp"
+        android:text="Alvaro Acosta"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.605"
+        android:visibility="invisible"
+        ></Button>
+
+    <Button
+
+        android:id="@+id/listJJ"
+
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:background="@drawable/redondo_15dp"
+        android:backgroundTint="#3781D8"
+        android:paddingStart="15dp"
+        android:text="Jhon Jair"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.690"
+        android:visibility="invisible"
+        ></Button>
+
+    <Button
+
+        android:id="@+id/listCR"
+
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:background="@drawable/redondo_15dp"
+        android:backgroundTint="#252CD2"
+        android:paddingStart="15dp"
+        android:text="Cesar Rey"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.775"
+        android:visibility="invisible"
+        ></Button>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83" />
+
+    <ImageButton
+
+        android:id="@+id/btnHome"
+
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@color/black"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961"
+        app:srcCompat="@mipmap/home"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+    <ImageButton
+
+        android:id="@+id/btnPanel"
+
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@color/black"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961"
+        app:srcCompat="@mipmap/panel"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+
+        android:id="@+id/btnInfo"
+
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@color/black"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961"
+        app:srcCompat="@mipmap/info"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

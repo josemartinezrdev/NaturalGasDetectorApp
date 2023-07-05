@@ -38,10 +38,8 @@ class MenuActivity : AppCompatActivity() {
 
         val btnInfoAutor = findViewById<TextView>(R.id.btnInfoAutor)
         btnInfoAutor.setOnClickListener {
-            entrarInfo()
         }
     }
-
     fun entrarInfo() {
         val intent = Intent(this, infoActivity::class.java)
         startActivity(intent)
