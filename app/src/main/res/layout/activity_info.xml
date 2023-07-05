@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:background="@color/black"
     android:textAlignment="center"
-    tools:context=".infoActivity">
+    tools:context=".InfoActivity">
 
     <View
         android:layout_width="match_parent"
@@ -177,6 +177,28 @@
         android:visibility="invisible"
         ></Button>
 
+    <TextView
+
+        android:id="@+id/textJD"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="José Martinez es uno de los autores del proyecto y se desempeña como desarrollador de la aplicación. Actualmente, es estudiante de electrónica y nació en la ciudad de Barrancabermeja. A sus 16 años, tiene aspiraciones de graduarse y posteriormente estudiar ingeniería de software y programación."
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        android:padding="35dp"
+        android:visibility="invisible"
+        ></TextView>
+
+
+
     <Button
 
         android:id="@+id/listJG"
@@ -198,6 +220,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.435"
         android:visibility="invisible" ></Button>
+
+    <TextView
+
+        android:id="@+id/textJG"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="José García es un estudiante de electrónica en el colegio CASD José Prudencio Padilla, nacido en Barrancabermeja. A la edad de 16 años, tiene planes de terminar sus estudios y convertirse en arquitecto en un futuro."
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        android:padding="35dp"
+        android:visibility="invisible"
+        ></TextView>
 
     <Button
 
@@ -222,6 +264,26 @@
         android:visibility="invisible"
         ></Button>
 
+    <TextView
+
+        android:id="@+id/textLM"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Leider Martínez es un joven de 16 años, estudiante de electronica, nacido en la ciudad de Barrancabermeja, y aspira a convertirse en un ingeniero electrónico en un futuro."
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        android:padding="35dp"
+        android:visibility="invisible"
+        ></TextView>
+
     <Button
 
         android:id="@+id/listAA"
@@ -244,6 +306,46 @@
         app:layout_constraintVertical_bias="0.605"
         android:visibility="invisible"
         ></Button>
+
+    <TextView
+
+        android:id="@+id/textAA"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Álvaro Acosta es un especialista en informática y tecnólogo en electrónica, quien ejerció como coordinador del proyecto NGD-657. Con paciencia, guió a los autores de este proyecto, siempre incitándolos a continuar y sacar este proyecto adelante."
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        android:padding="35dp"
+        android:visibility="invisible"
+        ></TextView>
+
+    <Button
+
+        android:id="@+id/btnSabMas"
+
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#FF2BFF80"
+        android:background="@drawable/redondo_15dp"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:text="Saber más"
+        app:layout_constraintTop_toBottomOf="@id/textAA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/textAA"
+        android:visibility="invisible"></Button>
 
     <Button
 
@@ -268,6 +370,26 @@
         android:visibility="invisible"
         ></Button>
 
+    <TextView
+
+        android:id="@+id/textJJ"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jhon Jair Acevedo es un instructor del SENA que fue parte fundamental del proyecto NGD-657, puesto que instruyó a sus autores en cuanto al software y el uso de las placas, llevándolos a lograr sus objetivos."
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        android:padding="35dp"
+        android:visibility="invisible"
+        ></TextView>
+
     <Button
 
         android:id="@+id/listCR"
@@ -290,6 +412,26 @@
         app:layout_constraintVertical_bias="0.775"
         android:visibility="invisible"
         ></Button>
+
+    <TextView
+
+        android:id="@+id/textCR"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="César Rey, quien ejerce como docente de electrónica y matemáticas, participó en el proyecto como orientador y coordinador del grupo, además de ser quien instruyó a los autores de este proyecto en los conocimientos básicos sobre la electrónica analógica y digital."
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"
+        android:padding="35dp"
+        android:visibility="invisible"
+        ></TextView>
 
     <View
         android:layout_width="match_parent"

@@ -40,23 +40,23 @@ class MenuActivity : AppCompatActivity() {
         btnInfoAutor.setOnClickListener {
         }
     }
-    fun entrarInfo() {
-        val intent = Intent(this, infoActivity::class.java)
+    private fun entrarInfo() {
+        val intent = Intent(this, InfoActivity::class.java)
         startActivity(intent)
     }
 
-    fun entrarConexion() {
-        val intent = Intent(this, conexionActivity::class.java)
+    private fun entrarConexion() {
+        val intent = Intent(this, ConexionActivity::class.java)
         startActivity(intent)
     }
 
-    fun entrarHome() {
+    private fun entrarHome() {
         val intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
     }
 
-    fun entrarPanel() {
-        val intent = Intent(this, panelActivity::class.java)
+    private fun entrarPanel() {
+        val intent = Intent(this, PanelActivity::class.java)
         startActivity(intent)
     }
 }
