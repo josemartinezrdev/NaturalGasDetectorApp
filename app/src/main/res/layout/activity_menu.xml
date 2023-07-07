@@ -63,8 +63,8 @@
         app:layout_constraintVertical_bias="0.185" />
 
     <ImageView
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -75,7 +75,7 @@
 
 
     <TextView
-        android:layout_width="160dp"
+        android:layout_width="150dp"
         android:layout_height="30dp"
         android:background="@drawable/redondo_15dp"
         android:backgroundTint="#878787"

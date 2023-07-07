@@ -376,7 +376,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Jhon Jair Acevedo es un instructor del SENA que fue parte fundamental del proyecto NGD-657, puesto que instruyó a sus autores en cuanto al software y el uso de las placas, llevándolos a lograr sus objetivos."
+        android:text="Jhon Jair Acevedo es un ingeniero electronico que fue parte fundamental del proyecto NGD-657, puesto que instruyó a sus autores en cuanto al software y el uso de las placas, llevándolos a lograr sus objetivos."
         android:textAlignment="textStart"
         android:textColor="@color/white"
         android:textSize="23sp"
