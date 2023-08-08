@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:background="@color/black"
     android:textAlignment="center"
-    tools:context=".PanelActivity">
+    tools:context=".DangerActivity">
 
     <View
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
     <TextView
         android:layout_width="350dp"
         android:layout_height="65dp"
-        android:text="CONTROL PANEL"
+        android:text="DANGER ZONE"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="44sp"
@@ -50,7 +50,7 @@
     <TextView
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:text="ALARMA"
+        android:text="SISTEMA"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -65,13 +65,13 @@
 
     <Button
 
-        android:id="@+id/onAlarm"
+        android:id="@+id/onSystem"
 
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:background="@drawable/redondo_15dp"
         android:backgroundTint="#FF2BFF80"
-        android:text="Encender Alarma"
+        android:text="Activar Sistema"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/black"
@@ -82,17 +82,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.292"
-        tools:ignore="TouchTargetSizeCheck"></Button>
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
 
-        android:id="@+id/offAlarm"
+        android:id="@+id/offSystem"
 
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:background="@drawable/redondo_15dp"
         android:backgroundTint="#BC5F4B"
-        android:text="Apagar Alarma"
+        android:text="Desactivar Sistema"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/black"
@@ -103,7 +103,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.375"
-        tools:ignore="TouchTargetSizeCheck"></Button>
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:layout_width="350dp"
@@ -138,7 +138,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.56"
-        tools:ignore="TouchTargetSizeCheck"></Button>
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
 
@@ -159,7 +159,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.642"
-        tools:ignore="TouchTargetSizeCheck"></Button>
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -174,7 +174,7 @@
         app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71"></TextView>
+        app:layout_constraintVertical_bias="0.71" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -189,7 +189,7 @@
         app:layout_constraintHorizontal_bias="0.723"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71"></TextView>
+        app:layout_constraintVertical_bias="0.71" />
 
     <Button
 
@@ -210,7 +210,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.79"
-        tools:ignore="TouchTargetSizeCheck"></Button>
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
 
@@ -231,7 +231,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.79"
-        tools:ignore="TouchTargetSizeCheck"></Button>
+        tools:ignore="TouchTargetSizeCheck" />
 
     <View
         android:layout_width="match_parent"
@@ -265,7 +265,7 @@
 
     <ImageButton
 
-        android:id="@+id/btnPanel"
+        android:id="@+id/btnDangerZ"
 
         android:layout_width="75dp"
         android:layout_height="75dp"

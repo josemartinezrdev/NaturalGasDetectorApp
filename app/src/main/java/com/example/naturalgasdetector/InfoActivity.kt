@@ -9,6 +9,7 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class InfoActivity : AppCompatActivity() {
@@ -83,7 +84,7 @@ class InfoActivity : AppCompatActivity() {
                 listA.isClickable = true
 
                 textQ.animate().alpha(0f).setDuration(300).withEndAction {
-                    textQ.visibility = View.INVISIBLE
+                    textQ.visibility = View.GONE
                 }.start()
             }
             isListQMoved = !isListQMoved
@@ -784,31 +785,26 @@ class InfoActivity : AppCompatActivity() {
             entrarHome()
         }
 
-        val btnPanel = findViewById<ImageButton>(R.id.btnPanel)
-        btnPanel.setOnClickListener {
-            entrarPanel()
+        val btnDangerZ = findViewById<ImageButton>(R.id.btnDangerZ)
+        btnDangerZ.setOnClickListener {
+            entrarDangerZ()
         }
 
         val btnInfo = findViewById<ImageButton>(R.id.btnInfo)
         btnInfo.setOnClickListener {
-            entrarInfo()
+            Toast.makeText(this, "¡Ya estas en Información", Toast.LENGTH_SHORT).show()
         }
     }
 
     //Metodos del menú
-
-    private fun entrarInfo() {
-        val intent = Intent(this, InfoActivity::class.java)
-        startActivity(intent)
-    }
 
     private fun entrarHome() {
         val intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
     }
 
-    private fun entrarPanel() {
-        val intent = Intent(this, PanelActivity::class.java)
+    private fun entrarDangerZ() {
+        val intent = Intent(this, DangerActivity::class.java)
         startActivity(intent)
     }
 }

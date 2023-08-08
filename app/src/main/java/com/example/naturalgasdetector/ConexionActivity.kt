@@ -1,161 +1,150 @@
 package com.example.naturalgasdetector
 
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothManager
-import android.content.Context
+import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.pm.PackageManager
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Spinner
+import android.widget.LinearLayout
+import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
-import android.Manifest
-import android.bluetooth.BluetoothDevice
-import android.bluetooth.BluetoothSocket
-import android.os.Message
-import androidx.core.app.ActivityCompat
-import java.io.IOException
-import java.util.UUID
+import androidx.appcompat.app.AppCompatActivity
+import com.ingenieriajhr.blujhr.BluJhr
+
 
 class ConexionActivity : AppCompatActivity() {
 
-    val REQUEST_ENABLE_BT = 1
+    var permisosOnBluetooth = false
+    var requiredPermissions = listOf<String>()
+    var devicesBluetooth = ArrayList<String>()
 
-    lateinit var mBtAdapter: BluetoothAdapter
-    var mAddressDevices: ArrayAdapter<String>? = null
-    var mNameDevices: ArrayAdapter<String>? = null
+    lateinit var blue:BluJhr
 
-    companion object {
-        var m_myUUID: UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
-        private var m_bluetoothSocket: BluetoothSocket? = null
+    var esp32Ip: String? = null
 
-        var m_isConnected: Boolean = false
-        lateinit var m_address: String
-    }
-
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conexion)
 
-        mAddressDevices = ArrayAdapter(this, android.R.layout.simple_list_item_1)
-        mNameDevices = ArrayAdapter(this, android.R.layout.simple_list_item_1)
+        blue = BluJhr(this)
+        blue.onBluetooth()
 
-
-        val btnActBT = findViewById<Button>(R.id.btnActBT)
-        val btnDesBT = findViewById<Button>(R.id.btnDesBT)
-        val btnDispBT = findViewById<Button>(R.id.btnDispBT)
-        val listDispBT = findViewById<Spinner>(R.id.listDispBT)
-        val btnDispConnect = findViewById<Button>(R.id.btnDispConnect)
+        val listBT = findViewById<ListView>(R.id.listBT)
+        val LinearLAY = findViewById<LinearLayout>(R.id.LinearLAY)
+        val btnSend = findViewById<Button>(R.id.btnSend)
         val campSSID = findViewById<EditText>(R.id.campSSID)
         val campPASS = findViewById<EditText>(R.id.campPASS)
-        val btnSendDW = findViewById<Button>(R.id.btnSendDW)
+        val consola = findViewById<TextView>(R.id.consola)
 
-        val someActivityResultLauncher = registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()
-        ) { result ->
-            if (result.resultCode == REQUEST_ENABLE_BT) {
-                Log.i("MainActivity", "ACTIVIDAD REGISTRADA")
+
+        listBT.setOnItemClickListener { adapterView, view, i, l ->
+            if (devicesBluetooth.isNotEmpty()){
+                blue.connect(devicesBluetooth[i])
+                blue.setDataLoadFinishedListener(object:BluJhr.ConnectedBluetooth{
+                    override fun onConnectState(state: BluJhr.Connected) {
+                        when(state){
+
+                            BluJhr.Connected.True->{
+                                Toast.makeText(applicationContext,"Dispositivo Conectado",Toast.LENGTH_SHORT).show()
+                                listBT.visibility = View.GONE
+                                LinearLAY.visibility = View.VISIBLE
+                                rxReceived()
+                            }
+
+                            BluJhr.Connected.Pending->{
+                                Toast.makeText(applicationContext,"Conectando...",Toast.LENGTH_SHORT).show()
+
+                            }
+
+                            BluJhr.Connected.False->{
+                                Toast.makeText(applicationContext,"Algo a salido mal...",Toast.LENGTH_SHORT).show()
+                            }
+
+                            BluJhr.Connected.Disconnect->{
+                                Toast.makeText(applicationContext,"Dispositivo Desconectado",Toast.LENGTH_SHORT).show()
+                                listBT.visibility = View.VISIBLE
+                                LinearLAY.visibility = View.GONE
+                            }
+
+                        }
+                    }
+                })
             }
         }
 
-        mBtAdapter = (getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager).adapter
+        btnSend.setOnClickListener {
 
-        //Checar si esta encendido o apagado
-        if (mBtAdapter == null) {
-            Toast.makeText(
-                this,
-                "Bluetooth no está disponible en este dipositivo",
-                Toast.LENGTH_LONG
-            ).show()
-        } else {
-            Toast.makeText(this, "Bluetooth está disponible en este dispositivo", Toast.LENGTH_LONG)
-                .show()
+            val ssid = campSSID.text.toString()
+            val password = campPASS.text.toString()
+            val wifiData = "$ssid,$password"
+
+            blue.bluTx(wifiData)
         }
 
-        btnActBT.setOnClickListener {
-            if (mBtAdapter.isEnabled) {
-                //Si ya está activado
-                Toast.makeText(this, "Bluetooth ya se encuentra activado", Toast.LENGTH_LONG).show()
-            } else {
-                //Encender Bluetooth
-                val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
-                if (ActivityCompat.checkSelfPermission(
-                        this,
-                        Manifest.permission.BLUETOOTH_CONNECT
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    Log.i("MainActivity", "ActivityCompat#requestPermissions")
-                }
-                someActivityResultLauncher.launch(enableBtIntent)
-            }
-        }
-
-        btnDesBT.setOnClickListener {
-            if (!mBtAdapter.isEnabled) {
-                //Si ya está desactivado
-                Toast.makeText(this, "Bluetooth ya se encuentra desactivado", Toast.LENGTH_LONG)
-                    .show()
-            } else {
-                //Encender Bluetooth
-                mBtAdapter.disable()
-                Toast.makeText(this, "Se ha desactivado el bluetooth", Toast.LENGTH_LONG).show()
-            }
-        }
-
-        btnDispBT.setOnClickListener {
-            if (mBtAdapter.isEnabled) {
-
-                val pairedDevices: Set<BluetoothDevice>? = mBtAdapter?.bondedDevices
-                mAddressDevices!!.clear()
-                mNameDevices!!.clear()
-
-                pairedDevices?.forEach { device ->
-                    val deviceName = device.name
-                    val deviceHardwareAddress = device.address // MAC address
-                    mAddressDevices!!.add(deviceHardwareAddress)
-                    //........... EN ESTE PUNTO GUARDO LOS NOMBRE A MOSTRARSE EN EL COMBO BOX
-                    mNameDevices!!.add(deviceName)
-                }
-
-                //ACTUALIZO LOS DISPOSITIVOS
-                listDispBT.setAdapter(mNameDevices)
-            } else {
-                val noDevices = "Ningun dispositivo pudo ser emparejado"
-                mAddressDevices!!.add(noDevices)
-                mNameDevices!!.add(noDevices)
-                Toast.makeText(this, "Primero vincule un dispositivo bluetooth", Toast.LENGTH_LONG)
-                    .show()
-            }
-        }
-
-        btnDispConnect.setOnClickListener {
-            try {
-                if (m_bluetoothSocket == null || !m_isConnected) {
-
-                    val IntValSpin = listDispBT.selectedItemPosition
-                    m_address = mAddressDevices!!.getItem(IntValSpin).toString()
-                    Toast.makeText(this, m_address, Toast.LENGTH_LONG).show()
-                    // Cancel discovery because it otherwise slows down the connection.
-                    mBtAdapter?.cancelDiscovery()
-                    val device: BluetoothDevice = mBtAdapter.getRemoteDevice(m_address)
-                    m_bluetoothSocket = device.createInsecureRfcommSocketToServiceRecord(m_myUUID)
-                    m_bluetoothSocket!!.connect()
-                }
-
-                Toast.makeText(this, "CONEXION EXITOSA", Toast.LENGTH_LONG).show()
-                Log.i("MainActivity", "CONEXION EXITOSA")
-
-            } catch (e: IOException) {
-                //connectSuccess = false
-                e.printStackTrace()
-                Toast.makeText(this, "ERROR DE CONEXION", Toast.LENGTH_LONG).show()
-                Log.i("MainActivity", "ERROR DE CONEXION")
-            }
+        btnSend.setOnLongClickListener {
+            blue.closeConnection()
+            true
         }
     }
+
+    private fun rxReceived() {
+        blue.loadDateRx(object:BluJhr.ReceivedData{
+            override fun rxDate(rx: String) {
+                val consola = findViewById<TextView>(R.id.consola)
+                consola.text = consola.text.toString()+rx
+                esp32Ip = consola.text.toString()+rx
+            }
+        })
+    }
+
+    //Permisos para android 12
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        if (blue.checkPermissions(requestCode,grantResults)){
+            Toast.makeText(this, "Exit", Toast.LENGTH_SHORT).show()
+            blue.initializeBluetooth()
+        }else{
+            if(Build.VERSION.SDK_INT < Build.VERSION_CODES.S){
+                blue.initializeBluetooth()
+            }else{
+                Toast.makeText(this, "Algo salio mal", Toast.LENGTH_SHORT).show()
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (!blue.stateBluetoooth() && requestCode == 100){
+            blue.initializeBluetooth()
+        }else{
+            if (requestCode == 100){
+                devicesBluetooth = blue.deviceBluetooth()
+                if (devicesBluetooth.isNotEmpty()){
+                    val adapter = ArrayAdapter(this,R.layout.row_list,devicesBluetooth)
+                    val listDeviceBluetooth = findViewById<ListView>(R.id.listBT)
+                    listDeviceBluetooth.adapter = adapter
+                }else{
+                    Toast.makeText(this, "No tienes vinculados dispositivos", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun onBackPressed() {
+        // Llamar a la función super.onBackPressed() para mantener el comportamiento predeterminado
+        super.onBackPressed()
+
+        // Lanzar la actividad DangerActivity y enviar el valor esp32Ip
+        val intent = Intent(this, DangerActivity::class.java)
+        intent.putExtra("clave", esp32Ip)
+        startActivity(intent)
+    }
+
 }

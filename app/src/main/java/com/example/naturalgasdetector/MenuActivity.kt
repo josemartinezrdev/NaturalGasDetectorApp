@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,12 +24,12 @@ class MenuActivity : AppCompatActivity() {
 
         val btnHome = findViewById<ImageButton>(R.id.btnHome)
         btnHome.setOnClickListener{
-            entrarHome()
+            Toast.makeText(this, "¡Ya estas en Inicio!", Toast.LENGTH_SHORT).show()
         }
 
-        val btnPanel = findViewById<ImageButton>(R.id.btnPanel)
-        btnPanel.setOnClickListener{
-            entrarPanel()
+        val btnDangerZ = findViewById<ImageButton>(R.id.btnDangerZ)
+        btnDangerZ.setOnClickListener{
+            entrarDangerZ()
         }
 
         val btnInfo = findViewById<ImageButton>(R.id.btnInfo)
@@ -50,13 +51,8 @@ class MenuActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun entrarHome() {
-        val intent = Intent(this, MenuActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun entrarPanel() {
-        val intent = Intent(this, PanelActivity::class.java)
+    private fun entrarDangerZ() {
+        val intent = Intent(this, DangerActivity::class.java)
         startActivity(intent)
     }
 }
