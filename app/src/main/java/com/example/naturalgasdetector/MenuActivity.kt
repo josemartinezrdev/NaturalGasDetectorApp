@@ -3,6 +3,7 @@ package com.example.naturalgasdetector
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -15,11 +16,6 @@ class MenuActivity : AppCompatActivity() {
         val btnLogoConect = findViewById<ImageButton>(R.id.btnLogoConect)
         btnLogoConect.setOnClickListener{
             entrarInfo()
-        }
-
-        val btnTextConect = findViewById<TextView>(R.id.btnTextConect)
-        btnTextConect.setOnClickListener{
-            entrarConexion()
         }
 
         val btnHome = findViewById<ImageButton>(R.id.btnHome)
@@ -39,6 +35,12 @@ class MenuActivity : AppCompatActivity() {
 
         val btnInfoAutor = findViewById<TextView>(R.id.btnInfoAutor)
         btnInfoAutor.setOnClickListener {
+            entrarInfo()
+        }
+
+        val btnTextConect = findViewById<TextView>(R.id.btnTextConect)
+        btnTextConect.setOnClickListener{
+            entrarConexion()
         }
     }
     private fun entrarInfo() {
@@ -47,8 +49,8 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun entrarConexion() {
-        val intent = Intent(this, ConexionActivity::class.java)
-        startActivity(intent)
+        val Intent = Intent(this, ConexionActivity::class.java)
+        startActivity(Intent)
     }
 
     private fun entrarDangerZ() {

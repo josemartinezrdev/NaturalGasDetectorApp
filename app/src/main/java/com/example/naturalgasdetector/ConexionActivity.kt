@@ -4,17 +4,18 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ingenieriajhr.blujhr.BluJhr
-
 
 class ConexionActivity : AppCompatActivity() {
 
@@ -35,12 +36,34 @@ class ConexionActivity : AppCompatActivity() {
         blue.onBluetooth()
 
         val listBT = findViewById<ListView>(R.id.listBT)
-        val LinearLAY = findViewById<LinearLayout>(R.id.LinearLAY)
+        val LAYOUT_RED = findViewById<LinearLayout>(R.id.LAYOUT_RED)
+        val LAYOUT_MENU = findViewById<LinearLayout>(R.id.LAYOUT_MENU)
         val btnSend = findViewById<Button>(R.id.btnSend)
         val campSSID = findViewById<EditText>(R.id.campSSID)
         val campPASS = findViewById<EditText>(R.id.campPASS)
-        val consola = findViewById<TextView>(R.id.consola)
 
+        //Menú
+
+        var valor = intent.getStringExtra("valor")
+
+        //Botones del menú
+
+        val btnHome = findViewById<ImageButton>(R.id.btnHome)
+        btnHome.setOnClickListener {
+            entrarHome()
+        }
+
+        val btnDangerZ = findViewById<ImageButton>(R.id.btnDangerZ)
+        btnDangerZ.setOnClickListener {
+            entrarDangerZ()
+        }
+
+        val btnInfo = findViewById<ImageButton>(R.id.btnInfo)
+        btnInfo.setOnClickListener {
+            entrarInfo()
+        }
+
+        //val consola = findViewById<TextView>(R.id.consola)
 
         listBT.setOnItemClickListener { adapterView, view, i, l ->
             if (devicesBluetooth.isNotEmpty()){
@@ -52,7 +75,8 @@ class ConexionActivity : AppCompatActivity() {
                             BluJhr.Connected.True->{
                                 Toast.makeText(applicationContext,"Dispositivo Conectado",Toast.LENGTH_SHORT).show()
                                 listBT.visibility = View.GONE
-                                LinearLAY.visibility = View.VISIBLE
+                                LAYOUT_RED.visibility = View.VISIBLE
+                                LAYOUT_MENU.visibility = View.VISIBLE
                                 rxReceived()
                             }
 
@@ -68,7 +92,8 @@ class ConexionActivity : AppCompatActivity() {
                             BluJhr.Connected.Disconnect->{
                                 Toast.makeText(applicationContext,"Dispositivo Desconectado",Toast.LENGTH_SHORT).show()
                                 listBT.visibility = View.VISIBLE
-                                LinearLAY.visibility = View.GONE
+                                LAYOUT_RED.visibility = View.GONE
+                                LAYOUT_MENU.visibility = View.GONE
                             }
 
                         }
@@ -97,7 +122,7 @@ class ConexionActivity : AppCompatActivity() {
             override fun rxDate(rx: String) {
                 val consola = findViewById<TextView>(R.id.consola)
                 consola.text = consola.text.toString()+rx
-                esp32Ip = consola.text.toString()+rx
+                esp32Ip = rx
             }
         })
     }
@@ -118,6 +143,8 @@ class ConexionActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
+    //Listar dispositivos
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (!blue.stateBluetoooth() && requestCode == 100){
             blue.initializeBluetooth()
@@ -137,7 +164,7 @@ class ConexionActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
     }
 
-    override fun onBackPressed() {
+    /*override fun onBackPressed() {
         // Llamar a la función super.onBackPressed() para mantener el comportamiento predeterminado
         super.onBackPressed()
 
@@ -145,6 +172,32 @@ class ConexionActivity : AppCompatActivity() {
         val intent = Intent(this, DangerActivity::class.java)
         intent.putExtra("clave", esp32Ip)
         startActivity(intent)
+    }*/
+
+    private fun entrarHome() {
+        val intentIP = Intent(this, DangerActivity::class.java)
+        intentIP.putExtra("clave", esp32Ip)
+
+        Toast.makeText(this, "IP: $esp32Ip", Toast.LENGTH_SHORT).show()
+
+        startActivity(intentIP)
     }
 
+    private fun entrarDangerZ() {
+        val intentIP = Intent(this, DangerActivity::class.java)
+        intentIP.putExtra("clave", esp32Ip)
+
+        Toast.makeText(this, "IP: $esp32Ip", Toast.LENGTH_SHORT).show()
+
+        startActivity(intentIP)
+    }
+
+    private fun entrarInfo() {
+        val intentIP = Intent(this, DangerActivity::class.java)
+        intentIP.putExtra("clave", esp32Ip)
+
+        Toast.makeText(this, "IP: $esp32Ip", Toast.LENGTH_SHORT).show()
+
+        startActivity(intentIP)
+    }
 }

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
@@ -11,6 +12,9 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import java.io.OutputStream
 import java.net.HttpURLConnection
 import java.net.URL
@@ -25,7 +29,7 @@ class DangerActivity : AppCompatActivity() {
 
         //Recibiendo ip
 
-        val valorRecibido = intent.getStringExtra("clave")
+        val VAL_IP = intent.getStringExtra("clave")
 
         //Codigo del menú
 
@@ -50,25 +54,30 @@ class DangerActivity : AppCompatActivity() {
         val onSystem = findViewById<Button>(R.id.onSystem)
         val offSystem = findViewById<Button>(R.id.offSystem)
 
-        //Codigo
+        var url:String
+
+        onSystem.setOnClickListener {
+            url = "http://$VAL_IP/onSystem"
+            enviarRespuestaHttp(url)
+            //Toast.makeText(this, url, Toast.LENGTH_SHORT).show()
+        }
+        offSystem.setOnClickListener {
+            url = "http://$VAL_IP/offSystem"
+            enviarRespuestaHttp(url)
+            //Toast.makeText(this, url, Toast.LENGTH_SHORT).show()
+        }
 
         val onGas = findViewById<Button>(R.id.onGas)
         val offGas = findViewById<Button>(R.id.offGas)
 
-        //Codigo
+        onGas.setOnClickListener {}
+        offGas.setOnClickListener {}
 
         val onLed = findViewById<Button>(R.id.onLed)
         val offLed = findViewById<Button>(R.id.offLed)
 
-
-
-        onLed.setOnClickListener {
-            if (valorRecibido != null) {
-                onGas.text = valorRecibido
-            } else {
-                onGas.text = "Valor nulo"
-            }
-        }
+        onLed.setOnClickListener {}
+        offLed.setOnClickListener {}
 
     }
 
@@ -80,5 +89,24 @@ class DangerActivity : AppCompatActivity() {
     private fun entrarHome() {
         val intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
+    }
+
+    // Función para enviar una solicitud HTTP al ESP32
+    private fun enviarRespuestaHttp(url: String) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                val url = URL(url)
+                val connection = url.openConnection() as HttpURLConnection
+                connection.requestMethod = "GET"
+                val responseCode = connection.responseCode
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    // Manejar la respuesta del servidor si es necesario
+                } else {
+                    // Manejo de errores si la respuesta no es OK
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 }
