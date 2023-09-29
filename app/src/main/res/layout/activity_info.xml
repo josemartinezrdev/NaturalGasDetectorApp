@@ -53,8 +53,7 @@
 
         android:layout_width="340dp"
         android:layout_height="50dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#252CD2"
+        android:background="@drawable/btn_state_blue"
         android:paddingStart="15dp"
         android:text="¿Qué es?"
         android:textAlignment="textStart"
@@ -94,8 +93,7 @@
 
         android:layout_width="340dp"
         android:layout_height="50dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#3781D8"
+        android:background="@drawable/btn_state_blue"
         android:paddingStart="15dp"
         android:text="¿Cómo funciona?"
         android:textAlignment="textStart"
@@ -135,8 +133,7 @@
 
         android:layout_width="340dp"
         android:layout_height="50dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#252CD2"
+        android:background="@drawable/btn_state_blue"
         android:paddingStart="15dp"
         android:text="Autores"
         android:textAlignment="textStart"
@@ -157,8 +154,7 @@
 
         android:layout_width="340dp"
         android:layout_height="40dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#3781D8"
+        android:background="@drawable/btn_state_blue"
         android:paddingStart="15dp"
         android:text="José Martínez"
         android:textAlignment="textStart"
@@ -200,8 +196,7 @@
 
         android:layout_width="340dp"
         android:layout_height="40dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#252CD2"
+        android:background="@drawable/btn_state_blue"
         android:paddingStart="15dp"
         android:text="José García"
         android:textAlignment="textStart"
@@ -241,8 +236,7 @@
 
         android:layout_width="340dp"
         android:layout_height="40dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#3781D8"
+        android:background="@drawable/btn_state_blue"
         android:paddingStart="15dp"
         android:text="Leider Martínez"
         android:textAlignment="textStart"
@@ -282,8 +276,7 @@
 
         android:layout_width="340dp"
         android:layout_height="40dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#252CD2"
+        android:background="@drawable/btn_state_blue"
         android:paddingStart="15dp"
         android:text="Alvaro Acosta"
         android:textAlignment="textStart"
@@ -323,8 +316,7 @@
 
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:backgroundTint="#FF2BFF80"
-        android:background="@drawable/redondo_15dp"
+        android:background="@drawable/btn_state_green"
         android:textColor="@color/black"
         android:textSize="23sp"
         android:textAlignment="center"
@@ -343,8 +335,7 @@
 
         android:layout_width="340dp"
         android:layout_height="40dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#3781D8"
+        android:background="@drawable/btn_state_blue"
         android:paddingStart="15dp"
         android:text="Jhon Jair"
         android:textAlignment="textStart"
@@ -384,8 +375,7 @@
 
         android:layout_width="340dp"
         android:layout_height="40dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#252CD2"
+        android:background="@drawable/btn_state_blue"
         android:paddingStart="15dp"
         android:text="Cesar Rey"
         android:textAlignment="textStart"

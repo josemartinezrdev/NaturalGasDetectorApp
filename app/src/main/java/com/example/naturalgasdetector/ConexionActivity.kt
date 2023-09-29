@@ -1,10 +1,12 @@
 package com.example.naturalgasdetector
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -16,6 +18,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ingenieriajhr.blujhr.BluJhr
+import java.util.Calendar
 
 class ConexionActivity : AppCompatActivity() {
 
@@ -123,21 +126,24 @@ class ConexionActivity : AppCompatActivity() {
                 val consola = findViewById<TextView>(R.id.consola)
                 consola.text = consola.text.toString()+rx
                 esp32Ip = rx
+                //Llamar a la notificacion del wifi
+
+                notificationWifi()
             }
         })
     }
 
-    //Permisos para android 12
+    //Permisos para android
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         if (blue.checkPermissions(requestCode,grantResults)){
-            Toast.makeText(this, "Exit", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Permisos otorgados con exito", Toast.LENGTH_SHORT).show()
             blue.initializeBluetooth()
         }else{
             if(Build.VERSION.SDK_INT < Build.VERSION_CODES.S){
                 blue.initializeBluetooth()
             }else{
-                Toast.makeText(this, "Algo salio mal", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Algo salio mal en los permisos", Toast.LENGTH_SHORT).show()
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -164,18 +170,8 @@ class ConexionActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
     }
 
-    /*override fun onBackPressed() {
-        // Llamar a la función super.onBackPressed() para mantener el comportamiento predeterminado
-        super.onBackPressed()
-
-        // Lanzar la actividad DangerActivity y enviar el valor esp32Ip
-        val intent = Intent(this, DangerActivity::class.java)
-        intent.putExtra("clave", esp32Ip)
-        startActivity(intent)
-    }*/
-
     private fun entrarHome() {
-        val intentIP = Intent(this, DangerActivity::class.java)
+        val intentIP = Intent(this, MenuActivity::class.java)
         intentIP.putExtra("clave", esp32Ip)
 
         Toast.makeText(this, "IP: $esp32Ip", Toast.LENGTH_SHORT).show()
@@ -193,11 +189,26 @@ class ConexionActivity : AppCompatActivity() {
     }
 
     private fun entrarInfo() {
-        val intentIP = Intent(this, DangerActivity::class.java)
+        val intentIP = Intent(this, InfoActivity::class.java)
         intentIP.putExtra("clave", esp32Ip)
 
         Toast.makeText(this, "IP: $esp32Ip", Toast.LENGTH_SHORT).show()
 
         startActivity(intentIP)
     }
+
+    @SuppressLint("ScheduleExactAlarm")
+    private fun notificationWifi() {
+        val intent = Intent(applicationContext, NotificationWifi::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(
+            applicationContext,
+            NotificationWifi.WIFI_NOTIFICATION_ID,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+        val notificationManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        notificationManager.setExact(AlarmManager.RTC_WAKEUP,
+            (Calendar.getInstance().timeInMillis + 1), pendingIntent)
+    }
+
 }

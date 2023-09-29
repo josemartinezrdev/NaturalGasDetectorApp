@@ -75,9 +75,12 @@
 
 
     <TextView
+
+        android:id="@+id/btnManual"
+
         android:layout_width="150dp"
         android:layout_height="30dp"
-        android:background="@drawable/redondo_15dp"
+        android:background="@drawable/btn_state_green"
         android:backgroundTint="#878787"
         android:gravity="center"
         android:text="NGD-657"
@@ -94,11 +97,11 @@
 
     <ImageButton
 
-        android:id="@+id/btnLogoConect"
+        android:id="@+id/btnLogo"
 
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:background="@drawable/redondo_15dp"
+        android:background="@drawable/btn_state_green"
         android:backgroundTint="#000000"
         android:backgroundTintMode="add"
         android:scaleType="centerCrop"
@@ -117,8 +120,7 @@
 
         android:layout_width="160dp"
         android:layout_height="30dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#2BFF80"
+        android:background="@drawable/btn_state_green"
         android:gravity="center"
         android:text="CONECTARME"
         android:textAlignment="center"

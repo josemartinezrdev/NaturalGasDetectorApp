@@ -69,8 +69,7 @@
 
         android:layout_width="250dp"
         android:layout_height="48dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#FF2BFF80"
+        android:background="@drawable/btn_state_red"
         android:text="Activar Sistema"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -90,8 +89,7 @@
 
         android:layout_width="250dp"
         android:layout_height="48dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#BC5F4B"
+        android:background="@drawable/btn_state_red"
         android:text="Desactivar Sistema"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -125,8 +123,7 @@
 
         android:layout_width="250dp"
         android:layout_height="48dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#FF2BFF80"
+        android:background="@drawable/btn_state_green"
         android:text="Abrir Gas"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -146,8 +143,7 @@
 
         android:layout_width="250dp"
         android:layout_height="48dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#BC5F4B"
+        android:background="@drawable/btn_state_red"
         android:text="Cerrar Gas"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -197,8 +193,7 @@
 
         android:layout_width="120dp"
         android:layout_height="48dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#BC5F4B"
+        android:background="@drawable/btn_state_red"
         android:text="OFF"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -218,8 +213,7 @@
 
         android:layout_width="120dp"
         android:layout_height="48dp"
-        android:background="@drawable/redondo_15dp"
-        android:backgroundTint="#FF2BFF80"
+        android:background="@drawable/btn_state_green"
         android:text="ON"
         android:textAlignment="center"
         android:textColor="@color/black"

@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/listBT"
         android:visibility="visible"
-        android:background="@drawable/redondo_15dp"
+        android:background="@drawable/btn_state_green"
         android:backgroundTint="#3E3E3E"
         >
     </ListView>
@@ -74,10 +74,9 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:id="@+id/btnSend"
-            android:background="@drawable/redondo_15dp"
+            android:background="@drawable/btn_state_blue"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:backgroundTint="#3781D8"
             android:text="ENVIAR DATOS"
             android:textAlignment="center"
             android:textColor="@color/white"

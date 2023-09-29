@@ -4,18 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import java.io.OutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -70,14 +64,26 @@ class DangerActivity : AppCompatActivity() {
         val onGas = findViewById<Button>(R.id.onGas)
         val offGas = findViewById<Button>(R.id.offGas)
 
-        onGas.setOnClickListener {}
-        offGas.setOnClickListener {}
+        onGas.setOnClickListener {
+            url = "http://$VAL_IP/onGas"
+            enviarRespuestaHttp(url)
+        }
+        offGas.setOnClickListener {
+            url = "http://$VAL_IP/offGas"
+            enviarRespuestaHttp(url)
+        }
 
         val onLed = findViewById<Button>(R.id.onLed)
         val offLed = findViewById<Button>(R.id.offLed)
 
-        onLed.setOnClickListener {}
-        offLed.setOnClickListener {}
+        onLed.setOnClickListener {
+            url = "http://$VAL_IP/onLed"
+            enviarRespuestaHttp(url)
+        }
+        offLed.setOnClickListener {
+            url = "http://$VAL_IP/offLed"
+            enviarRespuestaHttp(url)
+        }
 
     }
 
