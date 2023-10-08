@@ -123,7 +123,8 @@ class ConexionActivity : AppCompatActivity() {
     private fun rxReceived() {
         blue.loadDateRx(object:BluJhr.ReceivedData{
             override fun rxDate(rx: String) {
-                val consola = findViewById<TextView>(R.id.consola)
+                var consola = findViewById<TextView>(R.id.consola)
+                
                 consola.text = consola.text.toString()+rx
                 esp32Ip = rx
                 //Llamar a la notificacion del wifi
@@ -210,5 +211,4 @@ class ConexionActivity : AppCompatActivity() {
         notificationManager.setExact(AlarmManager.RTC_WAKEUP,
             (Calendar.getInstance().timeInMillis + 1), pendingIntent)
     }
-
 }

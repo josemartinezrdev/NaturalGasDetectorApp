@@ -1,34 +1,24 @@
 package com.example.naturalgasdetector
 
+import android.content.BroadcastReceiver
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 
-class NotificationPeriodic : BroadcastReceiver() {
+class NotificationGas : BroadcastReceiver() {
     companion object{
-        const val PERIODIC_NOTIFICATION_ID = 2
+        const val GAS_NOTIFICATION_ID = 3
     }
 
     override fun onReceive(context: Context, p1: Intent?) {
-
-        val database = FirebaseDatabase.getInstance()
-        val databasePeriodicas: DatabaseReference = database.getReference("Periodicas")
-
-        databasePeriodicas.setValue("1")
-        createNotificationPeriodic(context)
-
-
+        createNotificationWifi(context)
     }
+    private fun createNotificationWifi(context: Context) {
 
-    private fun createNotificationPeriodic(context: Context) {
-
-        val intentNotification = Intent(context, MenuActivity::class.java).apply {
+        val intentNotification = Intent().apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //Es para no crear nuevas instancias de la app
         }
 
@@ -36,21 +26,20 @@ class NotificationPeriodic : BroadcastReceiver() {
 
         val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intentNotification, flag)
 
-        var notificationPeriodic = NotificationCompat.Builder(context, MenuActivity.CHANNEL_ID)
+        var notificationGas = NotificationCompat.Builder(context, MenuActivity.CHANNEL_ID)
             .setSmallIcon(R.mipmap.logo_notification)
-            .setContentTitle("¡Informe!")
-            .setContentText("Informe periodico del hogar")
+            .setContentTitle("¡ALERTA!")
+            .setContentText("El sistema se detecto una fuga de gas natural.")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setStyle(
                 NotificationCompat.BigTextStyle()
-                    .bigText("Por ahora todo esta tranquilo en la zona de riesgo, si hay algo fuera de lo normal te notificaremos."
+                    .bigText("El sistema acaba de detectar una fuga de gas natural en la zona de riesgo, contacta con tu proveedor de gas para informar esta situación"
                     )
             )
             .setContentIntent(pendingIntent)
             .build()
 
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        manager.notify(PERIODIC_NOTIFICATION_ID, notificationPeriodic)
+        manager.notify(GAS_NOTIFICATION_ID, notificationGas)
     }
-
 }

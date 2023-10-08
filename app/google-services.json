@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "531506609181",
+    "firebase_url": "https://natural-gas-detector-65140-default-rtdb.firebaseio.com",
+    "project_id": "natural-gas-detector-65140",
+    "storage_bucket": "natural-gas-detector-65140.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531506609181:android:2a0abe364fc0da475d9af4",
+        "android_client_info": {
+          "package_name": "com.example.naturalgasdetector"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5Nsv1kEmf-tbIVZWdKFVvnJWZnmg0q5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

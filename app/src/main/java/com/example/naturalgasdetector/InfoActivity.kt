@@ -28,6 +28,7 @@ class InfoActivity : AppCompatActivity() {
         val listQ = findViewById<Button>(R.id.listQ)
         val listC = findViewById<Button>(R.id.listC)
         val listA = findViewById<Button>(R.id.listA)
+        val listP = findViewById<Button>(R.id.listP)
         val textQ = findViewById<TextView>(R.id.textQ)
         val textC = findViewById<TextView>(R.id.textC)
 
@@ -66,6 +67,8 @@ class InfoActivity : AppCompatActivity() {
                 listC.isClickable = false
                 listA.animate().alpha(0f).setDuration(300).start()
                 listA.isClickable = false
+                listP.animate().alpha(0f).setDuration(300).start()
+                listP.isClickable = false
 
                 textQ.alpha = 0f
                 textQ.visibility = View.VISIBLE
@@ -82,6 +85,8 @@ class InfoActivity : AppCompatActivity() {
                 listC.isClickable = true
                 listA.animate().alpha(1f).setDuration(300).start()
                 listA.isClickable = true
+                listP.animate().alpha(1f).setDuration(300).start()
+                listP.isClickable = true
 
                 textQ.animate().alpha(0f).setDuration(300).withEndAction {
                     textQ.visibility = View.GONE
@@ -102,6 +107,8 @@ class InfoActivity : AppCompatActivity() {
                 listQ.isClickable = false
                 listA.animate().alpha(0f).setDuration(300).start()
                 listA.isClickable = false
+                listP.animate().alpha(0f).setDuration(300).start()
+                listP.isClickable = false
 
                 textC.alpha = 0f
                 textC.visibility = View.VISIBLE
@@ -118,6 +125,9 @@ class InfoActivity : AppCompatActivity() {
                 listQ.isClickable = true
                 listA.animate().alpha(1f).setDuration(300).start()
                 listA.isClickable = true
+                listP.animate().alpha(1f).setDuration(300).start()
+                listP.isClickable = true
+
 
                 textC.animate().alpha(0f).setDuration(300).withEndAction {
                     textC.visibility = View.INVISIBLE
@@ -128,7 +138,7 @@ class InfoActivity : AppCompatActivity() {
 
         listA.setOnClickListener {
             if (!isListAMoved) {
-                val translationValue = -470f
+                val translationValue = -700f
                 val animacion = ObjectAnimator.ofFloat(listA, "translationY", translationValue)
                 animacion.duration = 300
                 animacion.interpolator = AccelerateDecelerateInterpolator()
@@ -138,6 +148,8 @@ class InfoActivity : AppCompatActivity() {
                 listQ.isClickable = false
                 listC.animate().alpha(0f).setDuration(300).start()
                 listC.isClickable = false
+                listP.animate().alpha(0f).setDuration(300).start()
+                listP.isClickable = false
 
                 listJD.alpha = 0f
                 listJD.visibility = View.VISIBLE
@@ -180,6 +192,9 @@ class InfoActivity : AppCompatActivity() {
                 listQ.isClickable = true
                 listC.animate().alpha(1f).setDuration(300).start()
                 listC.isClickable = true
+                listP.animate().alpha(1f).setDuration(300).start()
+                listP.isClickable = true
+
 
                 listJD.animate().alpha(0f).setDuration(300).withEndAction {
                     listJD.visibility = View.INVISIBLE
@@ -310,7 +325,7 @@ class InfoActivity : AppCompatActivity() {
 
         listJG.setOnClickListener {
             if (!isButtonMoved) {
-                val translationValue = -270f
+                val translationValue = -280f
                 val animacion = ObjectAnimator.ofFloat(listJG, "translationY", translationValue)
                 animacion.duration = 300
                 animacion.interpolator = AccelerateDecelerateInterpolator()
@@ -401,7 +416,7 @@ class InfoActivity : AppCompatActivity() {
 
         listLM.setOnClickListener {
             if (!isButtonMoved) {
-                val translationValue = -385f
+                val translationValue = -395f
                 val animacion = ObjectAnimator.ofFloat(listLM, "translationY", translationValue)
                 animacion.duration = 300
                 animacion.interpolator = AccelerateDecelerateInterpolator()
@@ -491,7 +506,7 @@ class InfoActivity : AppCompatActivity() {
 
         listAA.setOnClickListener {
             if (!isButtonMoved) {
-                val translationValue = -500f
+                val translationValue = -700f
                 val animacion = ObjectAnimator.ofFloat(listAA, "translationY", translationValue)
                 animacion.duration = 300
                 animacion.interpolator = AccelerateDecelerateInterpolator()
@@ -591,7 +606,7 @@ class InfoActivity : AppCompatActivity() {
 
         listJJ.setOnClickListener {
             if (!isButtonMoved) {
-                val translationValue = -610f
+                val translationValue = -666f
                 val animacion = ObjectAnimator.ofFloat(listJJ, "translationY", translationValue)
                 animacion.duration = 300
                 animacion.interpolator = AccelerateDecelerateInterpolator()
@@ -681,7 +696,7 @@ class InfoActivity : AppCompatActivity() {
 
         listCR.setOnClickListener {
             if (!isButtonMoved) {
-                val translationValue = -720f
+                val translationValue = -900f
                 val animacion = ObjectAnimator.ofFloat(listCR, "translationY", translationValue)
                 animacion.duration = 300
                 animacion.interpolator = AccelerateDecelerateInterpolator()
@@ -777,6 +792,10 @@ class InfoActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        listP.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://ngd-657-oficial.netlify.app/html/home"))
+            startActivity(intent)
+        }
 
         //Botones del menú
 

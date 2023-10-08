@@ -23,16 +23,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
+        
+
         <activity
             android:name=".splashActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <receiver
@@ -40,6 +37,8 @@
             android:enabled="true" />
         <receiver
             android:name=".NotificationPeriodic"
+            android:enabled="true" />
+        <receiver android:name=".NotificationGas"
             android:enabled="true" />
 
         <activity
